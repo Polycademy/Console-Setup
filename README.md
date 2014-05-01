@@ -18,6 +18,7 @@ Installations
 * procps
 * ncurses
 * dos2unix
+* mosh
 
 Setting Home to Windows User Profile
 ------------------------------------
