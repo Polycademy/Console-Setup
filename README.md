@@ -17,6 +17,7 @@ Installations
 * psmisc
 * procps
 * ncurses
+* dos2unix
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -175,6 +176,8 @@ Create a `.ssh` folder at your home directory.
 
 Follow the instructions here (https://help.github.com/articles/generating-ssh-keys) to create an `id_rsa` and `id_rsa.pub`.
 
+Send the public key to wherever you want to access. It's public!
+
 Once you've added your keys to your `ssh-agent`, you can show your currently added keys:
 
 ```
@@ -186,3 +189,60 @@ To remove the cached keys:
 ```
 ssh-add -D
 ```
+
+This means now for any git repositories, you must use the SSH clone URL, not the HTTPS url. Only the SSH clone URL works with SSH keys.
+So if you're cloning projects, always the SSH clone URL. If you have projects that is already using the HTTPS url, you can convert them:
+
+```
+git remote set-url REMOTENAME SSHURL
+```
+
+For example:
+
+```
+git remote set-url origin git@github.com:Polycademy/Console-Setup.git
+```
+
+Notes regarding SourceTree
+--------------------------
+
+You want to use SSH for SourceTree instead of HTTPS.
+
+So when installing SourceTree, make sure to select OpenSSH as your SSH client, not Putty.
+
+SourceTree's OpenSSH doesn't support passwords, so you need to use SSH keys.
+
+We have 3 things to do to make SourceTree work with SSH keys:
+
+1. Go into Tools -> Options and in the SSH Client Configuration -> SSH Key input field, put the full path to `id_rsa` key. This means you're using the same `id_rsa` for any remotes that SourceTree is managing. Which probably means both Github and Bitbucket.
+
+2. Go into Hosted Repositories and click on Edit Accounts, and change the Preferred Protocol to SSH.
+
+3. Make sure to always clone from SSH URLs, not HTTPS URLs.
+
+4. Run this as administrator from Cygwin/ConEmu, change the drive path to where SourceTree is installed. This is because you're using `ssh` from Cygwin a unix program, which is running `openssh_wrapper.sh` which is file written on Windows with `crlf` line endings.
+
+```
+dos2unix /cygdrive/c/Program\ Files\ \(x86\)/Atlassian/SourceTree/tools/openssh_wrapper.sh
+```
+
+Setting up Git
+--------------
+
+Make sure the `core.autocrlf` is false:
+
+```
+git config --global core.autocrlf false
+```
+
+Cygwin's git-core templates is stored in a different place than usual. Run this at the command line:
+
+```
+git config --global init.templatedir /cygdrive/c/cygwin64/usr/share/git-core/templates
+```
+
+Change the path to wherever the actual `git-core/templates` are.
+
+This one would solve the problem of SourceTree complaining about the git templates being missing.
+
+Also the templates folder is completely editable, edit it to your heart's content. This way any new git repositories (inited or cloned) will have these templates inside their `.git` folder.
