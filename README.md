@@ -14,6 +14,9 @@ Installations
 * make
 * vim
 * nano
+* psmisc
+* procps
+* ncurses
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -97,3 +100,43 @@ Configuring ZSH for Fun & Profit
 --------------------------------
 
 http://zanshin.net/2013/02/02/zsh-configuration-from-the-ground-up/
+
+Understanding ZSH's Config File Loading Order
+---------------------------------------------
+
+See: http://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
+
+In the case of ZSH, the `.zshrc` is always read whether it's an interactive or login shell.
+
+In the case of BASH, the `.bash_profile` is read when it's a login shell, the `.bashrc` is read when it's an interactive shell.
+Therefore put things into the `.bashrc` and source it from `.bash_profile`.
+
+Example `.zshrc` file
+---------------------
+
+```sh
+# The following lines were added by compinstall
+zstyle :compinstall filename '/cygdrive/c/Users/CMCDragonkai/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# Custom Configuration
+	# Launch ssh-agent if it's not running
+	# When the shell exits, kill the ssh-agent
+	SSHAGENT=/usr/bin/ssh-agent
+	SSHAGENTARGS="-s"
+	if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+		eval `$SSHAGENT $SSHAGENTARGS`
+		trap "kill $SSH_AGENT_PID" 0
+	fi
+# End of Custom Configuration
+```
