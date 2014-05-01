@@ -101,6 +101,31 @@ Configuring ZSH for Fun & Profit
 
 http://zanshin.net/2013/02/02/zsh-configuration-from-the-ground-up/
 
+Disabling Copy on Selection
+---------------------------
+
+First disable it in Cygwin's mouse settings which can be accessed via right clik. Then disable in ConEmu's settings.
+
+Getting sane copy & paste
+-------------------------
+
+On some keyboards insert doesn't exist. So you would want to get simple `Ctrl + Shift + C` or `Ctrl + Shift + V`.
+
+To do so, in Cygwin's settings, go into the keys panel and switch on `Ctrl + Shift letter shortcuts`.
+
+These become available:
+
+```
+Ctrl+Shift+C: Copy
+Ctrl+Shift+V: Paste
+Ctrl+Shift+N: New
+Ctrl+Shift+Q: Close
+Ctrl+Shift+R: Reset
+Ctrl+Shift+D: Default size
+Ctrl+Shift+F: Full screen
+Ctrl+Shift+S: Flip screen
+```
+
 Understanding ZSH's Config File Loading Order
 ---------------------------------------------
 
@@ -113,6 +138,8 @@ Therefore put things into the `.bashrc` and source it from `.bash_profile`.
 
 Example `.zshrc` file
 ---------------------
+
+The bottom shows what you should probably have, and we have added a snippet to start ssh-agent upon startup.
 
 ```sh
 # The following lines were added by compinstall
@@ -135,8 +162,27 @@ bindkey -v
 	SSHAGENT=/usr/bin/ssh-agent
 	SSHAGENTARGS="-s"
 	if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
-		eval `$SSHAGENT $SSHAGENTARGS`
+		eval `$SSHAGENT $SSHAGENTARGS` > /dev/null
 		trap "kill $SSH_AGENT_PID" 0
 	fi
 # End of Custom Configuration
+```
+
+Setting up SSH
+--------------
+
+Create a `.ssh` folder at your home directory.
+
+Follow the instructions here (https://help.github.com/articles/generating-ssh-keys) to create an `id_rsa` and `id_rsa.pub`.
+
+Once you've added your keys to your `ssh-agent`, you can show your currently added keys:
+
+```
+ssh-add -l
+```
+
+To remove the cached keys:
+
+```
+ssh-add -D
 ```
