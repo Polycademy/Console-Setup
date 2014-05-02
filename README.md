@@ -19,6 +19,10 @@ Installations
 * ncurses
 * dos2unix
 * mosh
+* mercurial
+* binutils
+* bison
+* gcc (for C and C++)
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -159,6 +163,10 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # Custom Configuration
+    # Include user's private bin, make available to sub processes
+    if [ -d "${HOME}/bin" ] ; then
+      export PATH="${HOME}/bin:${PATH}"
+    fi
 	# Launch ssh-agent if it's not running
 	# When the shell exits, kill the ssh-agent
 	SSHAGENT=/usr/bin/ssh-agent
@@ -247,3 +255,8 @@ Change the path to wherever the actual `git-core/templates` are.
 This one would solve the problem of SourceTree complaining about the git templates being missing.
 
 Also the templates folder is completely editable, edit it to your heart's content. This way any new git repositories (inited or cloned) will have these templates inside their `.git` folder.
+
+Other Cygwin Programs
+---------------------
+
+http://sourceware.org/cygwinports/
