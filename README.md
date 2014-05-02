@@ -238,10 +238,11 @@ dos2unix /cygdrive/c/Program\ Files\ \(x86\)/Atlassian/SourceTree/tools/openssh_
 Setting up Git
 --------------
 
-Make sure the `core.autocrlf` is false:
+Make sure the `core.autocrlf` is false, and the default line ending is lf:
 
 ```
 git config --global core.autocrlf false
+git config --global core.eol lf
 ```
 
 Cygwin's git-core templates is stored in a different place than usual. Run this at the command line:
