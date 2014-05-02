@@ -22,7 +22,11 @@ Installations
 * mercurial
 * binutils
 * bison
-* gcc (for C and C++)
+* gcc (for C and C++) (get this from Cygwin setup not apt-cyg)
+* autoconf
+* automake
+* libxml2
+* libyaml
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -175,6 +179,9 @@ bindkey -v
 		eval `$SSHAGENT $SSHAGENTARGS` > /dev/null
 		trap "kill $SSH_AGENT_PID" 0
 	fi
+    # Setup some aliases
+    alias apt-cyg-main='apt-cyg -m http://mirrors.kernel.org/sourceware/cygwin'
+    alias apt-cyg-port='apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports'
 # End of Custom Configuration
 ```
 
@@ -257,7 +264,27 @@ This one would solve the problem of SourceTree complaining about the git templat
 
 Also the templates folder is completely editable, edit it to your heart's content. This way any new git repositories (inited or cloned) will have these templates inside their `.git` folder.
 
+Setting Up SSH Server
+---------------------
+
+Use this: http://www.larsavery.com/blog/how-to-install-sshd-secure-shell-server-on-windows-using-cygwin/
+
+Once this is go into `Start > Settings > Control Panel > Administrative Tools > Services` and look for `CYGWIN sshd`, and change the startup type to manual or automatic depending on whether you want sshd to be running on Windows bootup.
+
 Other Cygwin Programs
 ---------------------
 
 http://sourceware.org/cygwinports/
+
+By using the aliases:
+
+```
+apt-cyg-main
+apt-cyg-port
+```
+
+Cygwin 64bit vs 32bit
+---------------------
+
+They are currently incompatible. Some packages have not been ported to 64bit. This can be problematic.
+Recommend installing 32bit for now if you're doing something you haven't done before. Otherwise check the 64bit packages first.
