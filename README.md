@@ -27,6 +27,9 @@ Installations
 * automake
 * libxml2
 * libyaml
+* weechat
+* mkisofs
+* gnupg
 
 Setting Home to Windows User Profile
 ------------------------------------
