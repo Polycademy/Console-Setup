@@ -6,7 +6,7 @@ Use pyenv. However right now, it needs some packages that might not be available
 Issues
 ------
 
-Waiting on 64bit packages for llvm.
+Waiting on 64bit packages for llvm. These are needed for making Python from source.
 
 Temporary Solution
 ------------------

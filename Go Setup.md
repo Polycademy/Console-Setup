@@ -15,3 +15,5 @@ Issues
 ------
 
 Currently waiting on a bugfix regarding the use of make.bash vs make.bat.
+
+https://github.com/moovweb/gvm/issues/67

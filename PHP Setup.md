@@ -39,4 +39,7 @@ Then add this to your `.zshrc`:
 
 Then install psy/psysh via `composer global require psysh/psy`.
 
-You can also PHPBrew but it untested on Cygwin.
+Issues
+------
+
+Attempt PHPBrew, but will require dependencies on 64 bit Cygwin. Instead attempt on 32 bit Cygwin.
