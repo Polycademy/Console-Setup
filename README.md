@@ -31,6 +31,10 @@ Installations
 * mkisofs
 * gnupg
 * GraphicsMagick
+* inetutils
+* utils-linux
+* cygutils
+* diffutils
 
 Setting Home to Windows User Profile
 ------------------------------------
