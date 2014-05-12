@@ -30,6 +30,7 @@ Installations
 * weechat
 * mkisofs
 * gnupg
+* GraphicsMagick
 
 Setting Home to Windows User Profile
 ------------------------------------
