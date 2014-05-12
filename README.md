@@ -32,6 +32,7 @@ Installations
 * gnupg
 * GraphicsMagick
 * inetutils
+* inetutils-server
 * utils-linux
 * cygutils
 * diffutils
