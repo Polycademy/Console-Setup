@@ -38,7 +38,9 @@ Installations
 * diffutils
 * colorgcc
 * patch
-* re2c
+* cmake
+* libboost
+* libboost-devel
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -63,6 +65,8 @@ Setting up ZSH
 --------------
 
 Go into `/etc/passwd`, change the `:/bin/bash` to `:/bin/zsh` for the users that want ZSH as their default shell.
+
+You can also edit the Cygwin.bat in the Cygwin installation directory. And change the `bash --login -i` to `zsh -l -i`
 
 To allow Window's Paths
 -----------------------
@@ -310,3 +314,46 @@ Cool Unix Tools
 ---------------
 
 http://kkovacs.eu/cool-but-obscure-unix-tools
+
+Adding Fake Sudo
+----------------
+
+Some scripts will use `sudo`. Now `sudo` doesn't exist inside Cygwin. So we're going to create a fake sudo.
+
+In your `~/bin`, add a `sudo` file and add this:
+
+```
+#!/bin/bash
+
+"$@"
+```
+
+And add this alias to your `.zshrc`:
+
+```
+alias sudo='sudo '                  # allows sudo commands to use aliases
+```
+
+Making Sublime Text Editor executable from CLI
+----------------------------------------------
+
+```
+cd ~/bin
+ln -s "path/to/sublime_text.exe" sublime
+```
+
+Then add this to your `.zshrc`:
+
+```
+export EDITOR="sublime"
+```
+
+Making System Binaries Available on PATH
+----------------------------------------
+
+Cygwin doesn't add your system binaries to PATH. To fix this, add this to your `.zshrc`:
+
+```
+# Adding sbin to PATH
+export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
+```

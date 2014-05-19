@@ -111,3 +111,8 @@ fi
 ```
 
 Then install psy/psysh via `composer global require psysh/psy`.
+
+HHVM
+----
+
+hhvm is not installable on Cygwin yet. Mainly the dependencies required to build are not packaged yet.
