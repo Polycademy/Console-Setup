@@ -36,6 +36,9 @@ Installations
 * utils-linux
 * cygutils
 * diffutils
+* colorgcc
+* patch
+* re2c
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -297,3 +300,13 @@ Cygwin 64bit vs 32bit
 
 They are currently incompatible. Some packages have not been ported to 64bit. This can be problematic.
 Recommend installing 32bit for now if you're doing something you haven't done before. Otherwise check the 64bit packages first.
+
+Making Cygwin Setup Executable from Commandline
+-----------------------------------------------
+
+Move the `setup-x86_64.exe` to the `~/bin`. This will allow certain tools that expect to use Cygwin's setup automatically. Such as for example the RVM for Windows.
+
+Cool Unix Tools
+---------------
+
+http://kkovacs.eu/cool-but-obscure-unix-tools
