@@ -287,6 +287,24 @@ Use this: http://www.larsavery.com/blog/how-to-install-sshd-secure-shell-server-
 
 Once this is go into `Start > Settings > Control Panel > Administrative Tools > Services` and look for `CYGWIN sshd`, and change the startup type to manual or automatic depending on whether you want sshd to be running on Windows bootup.
 
+When starting the sshd, open up Cygwin as Administrator and run:
+
+```
+net start sshd
+```
+
+To close it, run:
+
+```
+net stop sshd
+```
+
+Also Cygwin's sshd by default uses password. So just run this for a test:
+
+```
+ssh USER@127.0.0.1
+```
+
 Other Cygwin Programs
 ---------------------
 
