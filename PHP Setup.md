@@ -116,3 +116,21 @@ HHVM
 ----
 
 hhvm is not installable on Cygwin yet. Mainly the dependencies required to build are not packaged yet.
+
+Psysh
+-----
+
+Create a file `~/.psysh/rc.php` containing:
+
+```php
+<?php
+
+if (file_exists(getcwd() . '/vendor/autoload.php')) {
+    $composerAutoloader = getcwd() . '/vendor/autoload.php';
+    return [
+        'defaultIncludes' => array(
+            $composerAutoloader,
+        ),
+    ];
+}
+```
