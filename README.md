@@ -360,12 +360,6 @@ cd ~/bin
 ln -s "path/to/sublime_text.exe" sublime
 ```
 
-Then add this to your `.zshrc`:
-
-```
-export EDITOR="sublime"
-```
-
 Making System Binaries Available on PATH
 ----------------------------------------
 
