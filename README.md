@@ -369,3 +369,12 @@ Cygwin doesn't add your system binaries to PATH. To fix this, add this to your `
 # Adding sbin to PATH
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
 ```
+
+Setting up Virtualbox
+---------------------
+
+```
+cd ~/bin
+ln -s "path/to/VBoxManage.exe" VBoxManage
+VBoxManage list vms
+```
