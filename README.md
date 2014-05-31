@@ -378,3 +378,18 @@ cd ~/bin
 ln -s "path/to/VBoxManage.exe" VBoxManage
 VBoxManage list vms
 ```
+
+Setting up ngrok
+----------------
+
+Add this to your `.zshrc` after downloading and extracting ngrok into your PATH.
+
+```
+# ngrok, see help by doing "\ngrok --help", the "\" will run ngrok directly
+hash ngrok 2>/dev/null && {
+    start_ngrok () {
+        cygstart powershell "ngrok $@"
+    }
+    alias ngrok=start_ngrok
+}
+```
