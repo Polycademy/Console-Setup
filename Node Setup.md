@@ -53,4 +53,9 @@ npm install -g bower
 
 It should be installed into your `.node` directory.
 
-Note that the normal `node` console cannot be launched from inside mintty which is the default terminal used by Cygwin. You can however launch it from Cygwin.bat or Powershell or CMD. If you feel that you get weird errors, just run: `cygstart /bin/zsh` to get non-mintty terminal, and then run your commands from there.
+Problems
+--------
+
+Note that the normal `node` console cannot be launched from inside mintty which is the default terminal used by Cygwin. You can however launch it from Cygwin.bat or Powershell or CMD. 
+
+If you feel that you get weird errors, just run: `cygstart /bin/zsh` to get non-mintty terminal, and then run your commands from there.

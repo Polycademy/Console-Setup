@@ -1,6 +1,11 @@
 Console Setup
 =============
 
+TODO:
+
+1. Convert all of these into a dot file and bash setup script. (http://dotfiles.github.io/)
+2. Incorporate a ZSH package manager: https://github.com/Tarrasch/antigen-hs/blob/master/README.md
+
 Installations
 -------------
 
@@ -370,15 +375,6 @@ Cygwin doesn't add your system binaries to PATH. To fix this, add this to your `
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
 ```
 
-Setting up Virtualbox
----------------------
-
-```
-cd ~/bin
-ln -s "path/to/VBoxManage.exe" VBoxManage
-VBoxManage list vms
-```
-
 Setting up ngrok
 ----------------
 
@@ -393,3 +389,15 @@ hash ngrok 2>/dev/null && {
     alias ngrok=start_ngrok
 }
 ```
+
+256 Colors
+----------
+
+Right click on the terminal while you're inside mintty. Go into `Options -> Terminal -> Type`. Check whether the type is `xterm` or `xterm-256color`. If it's either, it's fine.
+
+Then add this to your `.zshrc`:
+
+```
+export TERM=xterm-256color
+```
+
