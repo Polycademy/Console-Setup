@@ -38,6 +38,8 @@ Installations
 * GraphicsMagick
 * inetutils
 * inetutils-server
+* nc
+* socat
 * utils-linux
 * cygutils
 * diffutils

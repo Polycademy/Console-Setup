@@ -1,7 +1,7 @@
-Nmap Setup
-==========
+Nmap & Ncat Setup
+=================
 
-Setting up nmap.
+Setting up nmap and ncat.
 
 Acquire the command line zip file: http://nmap.org/download.html#windows
 
@@ -29,5 +29,6 @@ It's not a big deal whether npf starts on boot most of times. But I like to be i
 Then extract the zip file, move it to a location for your utilities. Then:
 
 ```
-ln -s "/absolute/path/to/nmap" ~/bin/nmap
+ln -s "C:/absolute/path/to/nmap.exe" ~/bin/nmap
+ln -s "C:/absolute/path/to/ncat.exe" ~/bin/ncat
 ```
