@@ -19,6 +19,8 @@ apt-cyg-port install php-bcmath
 apt-cyg-port install php-readline
 apt-cyg-port install php-tokenizer
 apt-cyg-port install php-PEAR
+apt-cyg-port install php-mcrypt
+apt-cyg-port install php-gmp
 //...etc
 ```
 
