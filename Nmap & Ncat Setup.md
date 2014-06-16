@@ -31,4 +31,7 @@ Then extract the zip file, move it to a location for your utilities. Then:
 ```
 ln -s "C:/absolute/path/to/nmap.exe" ~/bin/nmap
 ln -s "C:/absolute/path/to/ncat.exe" ~/bin/ncat
+ln -s "C:/absolute/path/to/nping.exe" ~/bin/nping
 ```
+
+Use nping to test any kind of ports whether it's UDP, TCP or ICMP.
