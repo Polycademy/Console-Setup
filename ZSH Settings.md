@@ -17,3 +17,5 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 ```
+
+Look into this: https://gist.github.com/agnoster/3712874
