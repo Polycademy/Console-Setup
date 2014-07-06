@@ -21,6 +21,7 @@ apt-cyg-port install php-tokenizer
 apt-cyg-port install php-PEAR
 apt-cyg-port install php-mcrypt
 apt-cyg-port install php-gmp
+apt-cyg-port install php-shmop
 //...etc
 ```
 
@@ -59,7 +60,7 @@ Now we need to bring in all the Cygwin dependencies for us to use phpbrew!
 
 ```
 apt-cyg-port install re2c
-apt-cyg-main install autoconf automake curl libxslt libxslt-devel libtool libxml2 libxml2-devel bison libbz2_1 libreadline7 libreadline-devel libfreetype6 libfreetype-devel libpng15 libjpeg8 libgd2 libicu51 libicu-devel libmhash2 libmhash-devel libmcrypt4 libmcrypt-devel gettext libgettextpo0 libXpm4 libbz2-devel libiconv
+apt-cyg-main install autoconf automake curl libxslt libxslt-devel libtool libxml2 libxml2-devel bison libbz2_1 libreadline7 libreadline-devel libfreetype6 libfreetype-devel libpng15 libjpeg8 libgd2 libicu51 libicu-devel libmhash2 libmhash-devel libmcrypt4 libmcrypt-devel gettext libgettextpo0 libXpm4 libbz2-devel libiconv libcrypt-devel
 ```
 
 Get phpbrew:
@@ -79,6 +80,8 @@ if [ -d "${HOME}/.phpbrew" ] ; then
      . $HOME/.phpbrew/bashrc
 fi
 ```
+
+Potentially delete any existing `~/.pearrc`. This would prevent phpbrew from complaining.
 
 Build our PHP and start using it.
 
