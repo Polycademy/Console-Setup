@@ -5,6 +5,7 @@ TODO:
 
 1. Convert all of these into a dot file and bash setup script. (http://dotfiles.github.io/)
 2. Incorporate a ZSH package manager: https://github.com/Tarrasch/antigen-hs/blob/master/README.md
+3. Start using the XDG standards such as the `~/.config` directory for all the config files.
 
 Installations
 -------------
