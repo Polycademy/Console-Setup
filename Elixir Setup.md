@@ -49,3 +49,5 @@ fi
 ```
 
 Please note that these aliases will not be expanded in `exs` script hashbangs. You can either force the shell to expand the aliases, or you can force symlink the Elixir binaries to the `.bat` equivalents. The Elixir binaries don't work inside Cygwin.
+
+For now to use iex: `iex --werl`.
