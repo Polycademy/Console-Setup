@@ -15,6 +15,8 @@ So there are 3 options:
 
 See this list for reserved IP addresses: http://en.wikipedia.org/wiki/Reserved_IP_addresses
 
+Note that the current advice of using local DNS seems to conflict with Mobile tethered internet. You might need to disable the local DNS when using mobile tethered internet.
+
 DNS Software
 ------------
 
@@ -85,7 +87,7 @@ I set up an extra record like:
 127.0.0.1 *.dev
 ```
 
-This makes sure that any addresses with the `.dev` top level domain will route to localhost. To prove it try this:
+This makes sure that any addresses with the `.dev` top level domain will route to localhost. To prove it try this (after you have assigned 127.0.0.1 to standard ethernet adapters):
 
 ```
 nslookup random.dev
