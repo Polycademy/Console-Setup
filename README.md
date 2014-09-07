@@ -368,6 +368,8 @@ cd ~/bin
 ln -s "path/to/sublime_text.exe" sublime
 ```
 
+Note that this might be changed with the subl executable.
+
 Making System Binaries Available on PATH
 ----------------------------------------
 
