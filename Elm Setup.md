@@ -54,3 +54,15 @@ cd helloElm
 printf "import Mouse\n\nmain = lift asText Mouse.position" > Main.elm
 elm-server
 ```
+
+Allowing ghci to work properly
+------------------------------
+
+Edit the `~/Haskell Platform/bin/ghcii.sh`, change the contents to this:
+
+```
+#!/bin/sh
+exec "~/Haskell Platform/bin/ghc" --interactive ${1+"$@"}
+```
+
+Now instead of running `ghci`, use `ghcii.sh`. This is the command you'll use for entering into interactive Haskell.
