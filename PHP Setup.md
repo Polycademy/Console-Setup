@@ -110,6 +110,7 @@ phpbrew install-composer
 Then add this to your `.zshrc`:
 
 ```
+export COMPOSER_HOME="$HOME/.composer"
 if [ -d "${HOME}/.composer/vendor/bin" ] ; then
     export PATH="${HOME}/.composer/vendor/bin:${PATH}"
 fi

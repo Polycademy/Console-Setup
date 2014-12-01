@@ -214,7 +214,7 @@ Setting up SSH
 
 Create a `.ssh` folder at your home directory.
 
-Follow the instructions here (https://help.github.com/articles/generating-ssh-keys) to create an `id_rsa` and `id_rsa.pub`.
+Follow the instructions here (https://help.github.com/articles/generating-ssh-keys) to create an `identity` and `identity.pub`.
 
 Send the public key to wherever you want to access. It's public!
 
@@ -242,6 +242,8 @@ For example:
 ```
 git remote set-url origin git@github.com:Polycademy/Console-Setup.git
 ```
+
+Remember ssh-agent is only there for caching connection credentials. It's only useful for the current session. When you restart, credentials are clean-slated. You can use the `.ssh/config` instead to make ssh to use particular credentials when connecting to certain places. It has a defaulting mechanism, where it will the default identity file if it doesn't have a particular host record.
 
 Notes regarding SourceTree
 --------------------------
@@ -365,7 +367,7 @@ Making Sublime Text Editor executable from CLI
 
 ```
 cd ~/bin
-ln -s "path/to/sublime_text.exe" sublime
+ln -s "path/to/subl.exe" sublime
 ```
 
 Note that this might be changed with the subl executable.
