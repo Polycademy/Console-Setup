@@ -15,7 +15,7 @@ So there are 3 options:
 
 See this list for reserved IP addresses: http://en.wikipedia.org/wiki/Reserved_IP_addresses
 
-Note that the current advice of using local DNS seems to conflict with Mobile tethered internet. You might need to disable the local DNS when using mobile tethered internet.
+**Note that the current advice of using local DNS seems to conflict with Mobile tethered internet (connecting to the internet via the mobile phone hotspot). You might need to disable the local DNS when using mobile tethered internet. This might be because it is looking for a DNS server on the phone, and it obviously doesn't exist on your mobile.**
 
 DNS Software
 ------------

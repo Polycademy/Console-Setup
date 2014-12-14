@@ -12,7 +12,7 @@ Symlink an cygwin absolute path from `~/Source/casperjs/bin/casperjs.exe` to `~/
 For example:
 
 ```
-ln -s /cygdrive/c/Users/CMCDragonkai/Source/casperjs/bin/casperjs.exe 
+ln -s /cygdrive/c/Users/CMCDragonkai/Source/casperjs/bin/casperjs.exe ~/bin/casperjs.exe
 ```
 
 Run `casperjs`.
