@@ -49,6 +49,7 @@ Installations
 * cmake
 * libboost
 * libboost-devel
+* cygutils-extra
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -408,3 +409,18 @@ Then add this to your `.zshrc`:
 export TERM=xterm-256color
 ```
 
+Getting Clipboard Functionality
+-------------------------------
+
+Allowing you to use `putclip` and `getclip` along with some other interesting utilities.
+
+```
+apt-cyg-main install cygutils-extra
+```
+
+Checking all Installed Packages
+-------------------------------
+
+```
+apt-cyg list
+```
