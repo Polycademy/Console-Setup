@@ -50,6 +50,7 @@ Installations
 * libboost
 * libboost-devel
 * cygutils-extra
+* pkg-config
 
 Setting Home to Windows User Profile
 ------------------------------------
@@ -209,6 +210,17 @@ bindkey -v
     alias apt-cyg-port='apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports'
 # End of Custom Configuration
 ```
+
+Setup Pkg-Config Path
+---------------------
+
+Add this:
+
+```
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
+```
+
+It's required for source compilations for some software.
 
 Setting up SSH
 --------------
