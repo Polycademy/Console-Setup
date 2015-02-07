@@ -1,5 +1,19 @@
-WiFi Hotspot
-============
+WiFi
+====
+
+Stats
+-----
+
+Use this command: `netsh wlan show networks mode=bssid`.
+
+The above command will show signal strength, wifi channel, wifi protocol used, encryption, and data rates.
+
+On Windows, quality is defined in terms of percentage instead of dBm. To do necessary conversion you can use this formula: http://stackoverflow.com/a/15798024/582917
+
+Linux commands are found here: http://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
+
+HotSpot
+-------
 
 If you're connected to the internet, you can use your WiFi as a hotspot access point, and share your internet connection for your other WiFi enabled devices. You can think of this as reverse tethering. The official name for this feature is: "Windows Hosted Wireless Network".
 
