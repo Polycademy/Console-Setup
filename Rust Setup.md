@@ -1,17 +1,11 @@
 Rust Setup
 ==========
 
-These instructions are relevant for Rust 0.12.
+These instructions are relevant for Rust 1.0
 
-We need to install Rust windows binary from the official Rust site.
-
-Cargo is not installed with Rust on Windows, so you then go to Cargo official site and download the Windows binaries.
-
-All binaries should be 64 bit.
+We need to install 64 bit Rust windows binary from the official Rust site.
 
 Install Rust into `~/Rust`. Do not choose to allow Rust to associate the bin into your PATH. You will do this through ZSH.
-
-Unzip cargo into `~/.cargo`.
 
 Add these to your `.zshrc`.
 
@@ -19,11 +13,6 @@ Add these to your `.zshrc`.
 # rust (windows installation)
 if [ -d "${HOME}/Rust" ] ; then
     export PATH="$HOME/Rust/bin:$PATH"
-fi
-
-# cargo (windows installation)
-if [ -d "${HOME}/.cargo" ] ; then
-    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 ```
 
@@ -36,3 +25,17 @@ rustc --version
 rustdoc --version
 cargo --version
 ```
+
+We might have a problem with cygwin based git providing a unix path to Cargo. Cargo won't understand how to use the path.
+
+Change `~/.gitconfig` init.templatedir to point to windows style path. These are the path changes:
+
+```
+/cygdrive/c/cygwin64/usr/share/git-core/templates
+
+to
+
+C:/cygwin64/usr/share/git-core/templates
+```
+
+Cygwin git still seems to operate fine though. However this hack should not be required. Asking on https://github.com/rust-lang/cargo/issues/1295
