@@ -6,6 +6,9 @@ TODO:
 1. Convert all of these into a dot file and bash setup script. (http://dotfiles.github.io/)
 2. Incorporate a ZSH package manager: https://github.com/Tarrasch/antigen-hs/blob/master/README.md
 3. Start using the XDG standards such as the `~/.config` directory for all the config files.
+4. Reinstall Ruby, Gems, RVM
+5. Complete Compilation of FFMPEG
+6. Download MINGW libraries, and compile to target MINGW software that is not compatible with Cygwin. (well anything that doesn't already have Windows binary version). Note that MINGW seems to compile and understand only Windows PATHs not Cygwin PATHs. (http://stackoverflow.com/questions/771756/what-is-the-difference-between-cygwin-and-mingw/792422?noredirect=1#comment45956881_792422)
 
 Installations
 -------------
@@ -104,6 +107,10 @@ Then run:
 chmod +x /bin/apt-cyg
 ```
 
+Do note that when you install from cygwin-ports, the automated installer will attempt to look for dependencies. These dependencies may only exist in cygwin-main. This means often you'll need to backtrack, look for the missing dependencies and reinstall them from main first before then installing them from ports.
+
+Apt-Cyg currently has a problem: https://github.com/transcode-open/apt-cyg/issues/37 (you've added branching logic to the apt-cyg file, it's just annoying now.)
+
 Getting back the `clear` command
 --------------------------------
 
@@ -140,7 +147,7 @@ http://zanshin.net/2013/02/02/zsh-configuration-from-the-ground-up/
 Disabling Copy on Selection
 ---------------------------
 
-First disable it in Cygwin's mouse settings which can be accessed via right clik. Then disable in ConEmu's settings.
+First disable it in Cygwin's mouse settings which can be accessed via right click. Then disable in ConEmu's settings.
 
 Getting sane copy & paste
 -------------------------
@@ -424,7 +431,7 @@ export TERM=xterm-256color
 Getting Clipboard Functionality
 -------------------------------
 
-Allowing you to use `putclip` and `getclip` along with some other interesting utilities.
+Allowing you to use `putclip` and `getclip` for copying data from commands, along with some other interesting utilities.
 
 ```
 apt-cyg-main install cygutils-extra
@@ -436,3 +443,10 @@ Checking all Installed Packages
 ```
 apt-cyg list
 ```
+
+Changing Maximum Memory of Cygwin Programs
+------------------------------------------
+
+https://cygwin.com/cygwin-ug-net/setup-maxmem.html
+
+I think this only applies to executables compiled for Cygwin, not MINGW.

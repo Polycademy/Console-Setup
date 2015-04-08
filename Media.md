@@ -11,7 +11,7 @@ pip install youtube-dl
 ffmpeg
 ------
 
-This has not been fully confirmed yet. I have the source ffmpeg. But I have not made it. The dependencies are not there, and I'm not sure about the compiler flags.
+ffmpeg 1.2 branch is available inside Cygwin Ports. Not the 2.1 branch. The 1.2 branch is adequate.
 
 ```
 apt-cyg-main install binutils
@@ -23,67 +23,17 @@ apt-cyg-main install texinfo
 apt-cyg-main install bc
 apt-cyg-main install diffutils
 apt-cyg-main install yasm
-apt-cyg-main install libvorbis-devel
-apt-cyg-main install libtheora-devel
-apt-cyg-main install liborc0.4-devel
-apt-cyg-main install speex-devel
-apt-cyg-main install libgsm-devel
-apt-cyg-main install libvpx-devel
+apt-cyg-main install libopenjpeg1
+apt-cyg-main install libfribidi0
+apt-cyg-main install libgstinterfaces1.0_0
+apt-cyg-main install libgstreamer1.0_0
+apt-cyg-main install libgtk2.0_0
+apt-cyg-main install libilmbase7
+apt-cyg-main install libIlmImf7
+apt-cyg-main install libopenal1
+apt-cyg-main install libpulse-simple0
+apt-cyg-main install libpulse0
+apt-cyg-port install ffmpeg
 
-apt-cyg-port install libmp3lame-devel
-apt-cyg-port install libschroedinger1.0-devel
-apt-cyg-port install libxvidcore-devel
-apt-cyg-port install libx264-devel
-apt-cyg-port install libopus-devel
-
-cd Source
-git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg
-
-dos2unix configure 
-
-make distclean
-
-./configure \
-    --enable-shared \
-    --disable-static \
-    --enable-gpl \
-    --enable-nonfree \
-    --enable-libvorbis \
-    --enable-libtheora \
-    --enable-libxvid \
-    --enable-libspeex \
-    --enable-libgsm \
-    --enable-libmp3lame \
-    --enable-libschroedinger \
-    --enable-libx264 \
-    --enable-libopus \
-    --enable-libvpx
-
-make
-
-make install
+ffmpeg
 ```
-
-These AAC has not been figured out yet. We still need to download the libraries.
-
-```
-#--enable-libfaac
-#--enable-libfdk-aac
-#--enable-libfaad
-```
-
-There is also some problems with regards to the configuration options.
-
-Use this:
-
-```
-pkg-config --libs X
-```
-
-Where X can be particular library you're looking for in PKG_CONFIG_PATH.
-
-See this for further information: http://juliensimon.blogspot.com.au/2008/12/howto-compiling-ffmpeg-x264-mp3-xvid.html
-
-You need to uninstall all the codecs, reinstall it. See if pkg-config changes. Then try changing compiler flags...?
-
-See this: http://wiki.collectiveaccess.org/index.php?title=Compiling_ffmpeg

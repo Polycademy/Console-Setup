@@ -1,5 +1,21 @@
+PAAS Tools
+==========
+
+Pagodabox Setup
+---------------
+
+First download the Pagodabox CLI tool: http://pagodabox.io/downloads/
+
+Put it in `~/bin`.
+
+Run `pagodabox`.
+
+Put in your credentials.
+
+Configuration will be stored in `~/.pagodabox`.
+
 Heroku Setup
-============
+------------
 
 First install Ruby and Ruby Gems.
 
