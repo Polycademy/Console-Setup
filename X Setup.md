@@ -17,5 +17,5 @@ startxwin
 To run some GUI program (where `name` is the executable).
 
 ```
-startxwin $(which name)
+startxwin $(which name) param1 param2
 ```

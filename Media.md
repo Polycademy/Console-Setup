@@ -37,3 +37,18 @@ apt-cyg-port install ffmpeg
 
 ffmpeg
 ```
+
+mplayer
+-------
+
+```
+apt-cyg-main install libgif4
+apt-cyg-main install libmng1
+apt-cyg-main install libdv4
+apt-cyg-port install mplayer
+update-mime-database -n /usr/share/mime # because this command didn't run at the end of etc/postinstall/mplayer.sh.done
+```
+
+```
+startxwin $(which mplayer) videofile
+```
