@@ -49,8 +49,8 @@ AcrylicController EditAcrylicConfigurationFile
 The last 2 commands in editing the hosts file and configuration files currently do not work in Cygwin. You can edit them at their installation directory however:
 
 ```
-sublime C:\Program Files (x86)\Acrylic DNS Proxy\AcrylicConfiguration.ini
-sublime C:\Program Files (x86)\Acrylic DNS Proxy\AcrylicHosts.txt
+sublime "C:\Program Files (x86)\Acrylic DNS Proxy\AcrylicConfiguration.ini"
+sublime "C:\Program Files (x86)\Acrylic DNS Proxy\AcrylicHosts.txt"
 ```
 
 Before we go ahead to configure it, let's use the namebench tool to find our nearest DNS servers. You should run this tool whenever you change geographic locations. For me, the namebench tool has determined that these are the best DNS servers to use:
@@ -67,7 +67,7 @@ Ok time to configure the `AcrylicConfiguration.ini` and `AcrylicHosts.txt`:
 
 To edit these files, you must run a text editing app at administrator level permissions.
 
-Set the PrimaryServerAddress, SecondaryServerAddress, TertiaryServerAddress, they will be contacted in parrallel.
+Set the PrimaryServerAddress, SecondaryServerAddress, TertiaryServerAddress, they will be contacted in parallel.
 
 Reduce the cache time to:
 

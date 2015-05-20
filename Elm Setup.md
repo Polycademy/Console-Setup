@@ -34,6 +34,30 @@ fi
 
 Note that cabal packages are stored inside `$APPDATA/cabal`.
 
+There's an extra directory also at `$APPDATA/ghc`. This stores the `ghci` history.
+
+If you want to fully uninstall Haskell Platform in order to get a fresh update:
+
+```
+rm -rf $HOME/Haskell\ Platform/
+rm -rf $APPDATA/cabal
+rm -rf $APPDATA/ghc
+```
+
+Here are the descriptions for the directories in `$APPDATA/cabal`:
+
+```
+/packages -- This is the downloaded package cache.
+/logs -- This contains the installation logs for the downloaded package.
+/doc -- This contains the documentation fo the downloaded packages.
+/bin -- This contains generated binaries from executables.
+/{architecture} -- This is the actual installed & compiled libraries for your specific GHC & host architecture. Packages that are inside here, can be imported and used by your installed GHC compiler. Different GHC compilers could have different compiled packages.
+```
+
+Because you also have pre-installed packages from Haskell Platform, newer packages installed inside `$APPDATA/cabal` will override the Haskell Platform packages. You don't modify the Haskell Platform packages. These packages are not Node like. Every package is shared. There is potential for dependency hell.
+
+Deleting packages from `cabal` is difficult. There is no native command for this. Start by unregistering the package (only if it is installed as a compiled library into the specific GHC architecture): `ghc-pkg unregister {pkg-id}`. Then find each instance of it in the folders mentioned above, and delete them. The package itself may have generated files or folders, and you will need to find them to delete them too.
+
 Installing Elm
 --------------
 
@@ -41,7 +65,8 @@ Run these commands:
 
 ```
 cabal update
-cabal install elm elm-server elm-repl elm-get
+cabal install -j elm-compiler-0.15 elm-package-0.5 elm-make-0.1.2
+cabal install -j elm-repl-0.4.1 elm-reactor-0.3.1
 ```
 
 You should have those executables in the PATH now.
@@ -51,9 +76,11 @@ Try these commands and navigate your browser to 127.0.0.1:8000 to see it work:
 ```
 mkdir helloElm
 cd helloElm
-printf "import Mouse\n\nmain = lift asText Mouse.position" > Main.elm
-elm-server
+printf "import Graphics.Element exposing (..)\nimport Mouse\n\nmain : Signal Element\nmain = Signal.map show Mouse.position" > Main.elm
+elm-reactor
 ```
+
+A new directory is placed in `$APPDATA/elm`. This stores the files related to the REPL and Elm packages.
 
 Allowing ghci to work properly
 ------------------------------

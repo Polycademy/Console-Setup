@@ -28,7 +28,7 @@ Just add this to `.zshrc`:
 
 ```
 if [ -d "${HOME}/.rvm" ] ; then
-    export PATH="$PATH:$HOME/.rvm/bin"
+    export PATH="${HOME}/.rvm/bin:${PATH}"
     source "$HOME/.rvm/scripts/rvm"
 fi
 ```
