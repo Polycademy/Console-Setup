@@ -48,7 +48,6 @@ Installations
 * utils-linux
 * cygutils
 * diffutils
-* colorgcc
 * patch
 * cmake
 * libboost
@@ -98,7 +97,7 @@ Installing apt-cyg
 
 `apt-cyg` will allow you to install Cygwin packages from inside Cygwin.
 
-This is the apt-cyg repository: https://github.com/transcode-open/apt-cyg
+This is the apt-cyg repository: https://github.com/transcode-open/apt-cyg/blob/master/apt-cyg
 
 Install it by getting the apt-cyg binary and putting it into `/bin/apt-cyg`.
 
@@ -110,7 +109,16 @@ chmod +x /bin/apt-cyg
 
 Do note that when you install from cygwin-ports, the automated installer will attempt to look for dependencies. These dependencies may only exist in cygwin-main. This means often you'll need to backtrack, look for the missing dependencies and reinstall them from main first before then installing them from ports.
 
-Apt-Cyg currently has a problem: https://github.com/transcode-open/apt-cyg/issues/37 (you've added branching logic to the apt-cyg file, it's just annoying now.)
+Add these 2 as functions for easier use:
+
+```
+apt-cyg-main () {
+    apt-cyg mirror http://mirrors.kernel.org/sourceware/cygwin && apt-cyg $@
+}
+apt-cyg-port () {
+    apt-cyg mirror ftp://ftp.cygwinports.org/pub/cygwinports && apt-cyg $@
+}
+```
 
 Getting back the `clear` command
 --------------------------------
@@ -216,8 +224,12 @@ bindkey -v
         trap "kill $SSH_AGENT_PID" 0
     fi
     # Setup some aliases
-    alias apt-cyg-main='apt-cyg -m http://mirrors.kernel.org/sourceware/cygwin'
-    alias apt-cyg-port='apt-cyg -m ftp://ftp.cygwinports.org/pub/cygwinports'
+    apt-cyg-main () {
+        apt-cyg mirror http://mirrors.kernel.org/sourceware/cygwin && apt-cyg $@
+    }
+    apt-cyg-port () {
+        apt-cyg mirror ftp://ftp.cygwinports.org/pub/cygwinports && apt-cyg $@
+    }
 # End of Custom Configuration
 ```
 
@@ -392,3 +404,22 @@ Changing Maximum Memory of Cygwin Programs
 https://cygwin.com/cygwin-ug-net/setup-maxmem.html
 
 I think this only applies to executables compiled for Cygwin, not MINGW.
+
+Setting up Hidden Files in Windows
+----------------------------------
+
+You can make your hidden files in your home directory hidden by doing:
+
+```
+attrib +h ".*" /s /d
+```
+
+That will run it on all files, directories and subdirectories that have `.*` as their file/folder name.
+
+It might be more safer to do the files only using the glob, and then do the folders individually.
+
+```
+attrib +h ".*"
+```
+
+Now your dot files will actually be hidden.

@@ -34,7 +34,19 @@ fi
 
 Note that cabal packages are stored inside `$APPDATA/cabal`.
 
-There's an extra directory also at `$APPDATA/ghc`. This stores the `ghci` history.
+There's an extra directory also at `$APPDATA/ghc`. This stores the `ghci` history and you can configure GCHI here using a file called `ghci.conf`.
+
+Here's an example `ghci.conf` that I use:
+
+```
+:set prompt "%l-λ:> "
+:set prompt2 "%l-λ:> | "
+:set editor "C:/Program Files/Sublime Text 3/subl.exe"
+:set +t
+:set +s
+```
+
+It no longer shows the currently imported modules on the prompt. To view currently imported modules use `:show imports` and `:show language` or just `:set` to view currently used lanaguage extensions.
 
 If you want to fully uninstall Haskell Platform in order to get a fresh update:
 

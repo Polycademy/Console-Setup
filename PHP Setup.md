@@ -3,6 +3,8 @@ PHP Setup
 
 Now this would be ideal if it was possible to build PHP inside Cygwin. Unfortunately it's not!
 
+Some of thes dependencies have moved to `apt-cyg-main`.
+
 ```
 apt-cyg-port install php
 apt-cyg-port install php-json
@@ -118,6 +120,8 @@ fi
 
 Then install psy/psysh via `composer global require psysh/psy`.
 
+Note that phpbrew relies on existing system php. But once you built your own custom versions, you can install extensions.. etc.
+
 HHVM
 ----
 
@@ -139,4 +143,37 @@ if (file_exists(getcwd() . '/vendor/autoload.php')) {
         ),
     ];
 }
+
+// sets the default timezone to the TZ environment variable, that is usually available on Linux and Cygwin
+date_default_timezone_set(getenv('TZ'));
+
+?>
 ```
+
+PECL extensions
+---------------
+
+Most extensions that are useful are already available over Cygwin.
+
+For the ones that are not, you can install like:
+
+```
+pecl channel-update pecl.php.net
+pecl install <ext>
+cd /etc/php5/conf.d
+echo "extension = <ext>.dll" >> <ext>.ini
+```
+
+I installed the `sync` extension.
+
+Even on Cygwin, we still use `dll` and no `so`.
+
+If you replace it with the cygwin packages, you should uninstall them first `pecl uninstall <ext>; rm /etc/php5/conf.d/<ext>.ini`, and then install the package.
+
+Check if it all works by using:
+
+```
+php -m
+```
+
+The phpbrew extensions are not relevant to this. They are installed for phpbrew built runtimes.
