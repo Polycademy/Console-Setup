@@ -44,6 +44,7 @@ Here's an example `ghci.conf` that I use:
 :set editor "C:/Program Files/Sublime Text 3/subl.exe"
 :set +t
 :set +s
+:set +m
 ```
 
 It no longer shows the currently imported modules on the prompt. To view currently imported modules use `:show imports` and `:show language` or just `:set` to view currently used lanaguage extensions.
@@ -105,3 +106,12 @@ exec "~/Haskell Platform/bin/ghc" --interactive ${1+"$@"}
 ```
 
 Now instead of running `ghci`, use `ghcii.sh`. This is the command you'll use for entering into interactive Haskell.
+
+GHCI Performance for Large Projects
+-----------------------------------
+
+Too many modules will slow down compilation. Use these tricks:
+
+* https://downloads.haskell.org/~ghc/7.8.1/docs/html/users_guide/ghci-compiled.html
+* https://downloads.haskell.org/~ghc/7.10.1/docs/html/users_guide/ghci-obj.html
+* https://wiki.haskell.org/Making_GHCi_scale_better_and_faster

@@ -11,7 +11,7 @@ Then just run this:
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-Note that RVM will autoadd entries into your `.zshrc`, `.bashrc` and `.bash_profile` and `.profile` and `.zlogin`.
+Note that RVM will autoadd entries into your `.zshrc`, `.bashrc` and `.bash_profile` and `.profile` and `.mkshrc`. You should remove these auto added entries.
 
 These 2 entries are required for RVM and Ruby to work:
 

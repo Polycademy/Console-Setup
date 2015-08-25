@@ -52,3 +52,9 @@ update-mime-database -n /usr/share/mime # because this command didn't run at the
 ```
 startxwin $(which mplayer) videofile
 ```
+
+If it's just music:
+
+```
+mplayer file.mp3
+```

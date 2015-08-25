@@ -3,7 +3,7 @@ C & C++ Setup
 
 GCC, Make.. etc tools should already be installed by your other stuff.
 
-Dependencies:
+Otherwise also install these things:
 
 ```
 apt-cyg-main install subversion
@@ -25,6 +25,8 @@ apt-cyg-main install automake
 apt-cyg-main install libtool
 apt-cyg-main install libxml2
 apt-cyg-main install python
+apt-cyg-main install gdb
+apt-cyg-main install cgdb
 ```
 
 Check the last goo llvm and clang version: http://root.cern.ch/svn/root/trunk/interpreter/cling/LastKnownGoodLLVMSVNRevision.txt
