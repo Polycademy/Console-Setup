@@ -113,10 +113,10 @@ Add these 2 as functions for easier use:
 
 ```
 apt-cyg-main () {
-    apt-cyg mirror http://mirrors.kernel.org/sourceware/cygwin && apt-cyg $@
+    apt-cyg mirror http://cygwin.mirror.uk.sargasso.net && apt-cyg update && apt-cyg $@
 }
 apt-cyg-port () {
-    apt-cyg mirror ftp://ftp.cygwinports.org/pub/cygwinports && apt-cyg $@
+    apt-cyg mirror ftp://ftp.cygwinports.org/pub/cygwinports && apt-cyg update && apt-cyg $@
 }
 ```
 
@@ -370,6 +370,10 @@ hash ngrok 2>/dev/null && {
     alias ngrok=start_ngrok
 }
 ```
+
+Tunneling to HTTP is easy: `ngrok 80`.
+
+Tunneling to HTTPS requires an account at ngrok. Then use `ngrok tls 443`. Which allows you to access `https://...`.
 
 256 Colors
 ----------
