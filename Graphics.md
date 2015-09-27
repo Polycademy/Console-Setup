@@ -1,6 +1,15 @@
 Graphics
 ========
 
+graphicsmagick
+--------------
+
+```
+apt-cyg-main install GraphicsMagick
+```
+
+This is much more powerful and commands can be accessed from `gm`. It can convert between different formats and even compress images!
+
 trimage
 -------
 

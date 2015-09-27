@@ -17,5 +17,6 @@ if [ -d "${HOME}/.oh-my-zsh" ] ; then
     HIST_STAMPS="dd-mm-yyyy"
     plugins=(git)
     . $ZSH/oh-my-zsh.sh
+    unalias gm # because this is for graphics magick!
 fi
 ```

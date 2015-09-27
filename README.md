@@ -371,7 +371,7 @@ hash ngrok 2>/dev/null && {
 }
 ```
 
-Tunneling to HTTP is easy: `ngrok 80`.
+Tunneling to HTTP is easy: `ngrok http 80`.
 
 Tunneling to HTTPS requires an account at ngrok. Then use `ngrok tls 443`. Which allows you to access `https://...`.
 
