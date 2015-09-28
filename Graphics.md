@@ -81,3 +81,8 @@ startxwin $(which trimage) -d /path/to/directory/of/images
 ```
 
 Or you could just use this: http://hugogiraudel.com/2013/07/29/optimizing-with-bash/
+
+Image Feature Extraction
+------------------------
+
+* http://ilastik.org/index.html
